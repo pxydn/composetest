@@ -49,7 +49,7 @@ jobs:
         run: docker build . --file Dockerfile --tag $IMAGE_NAME
 
       - name: log into GHCR
-        run: echo "${{ secrets.CR_PAT }}" | docker login ghcr.io -u pxydn --password-stdin
+        run: docker login ghcr.io -u pxydn ${{ secrets.CR_PAT }}
 
       - name: Push image
         run: |
